@@ -112,3 +112,13 @@ test('references', async (t) => {
 
   t.snapshot(output);
 });
+
+test('no vfile', async (t) => {
+  const output = await compile(await readFile(join(FIXTURES, 'images.md')), {
+    destinationDir: OUTPUTS,
+  });
+
+  await writeFile(join(OUTPUTS, 'no-vfile.html'), output);
+
+  t.snapshot(output);
+});
