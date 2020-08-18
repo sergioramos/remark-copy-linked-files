@@ -7,7 +7,7 @@ _For the most part, this code is taken directly from [gatsby-remark-copy-linked-
 ## installation
 
 ```bash
-yarn add @sergioramos/remark-copy-linked-files
+yarn add remark-copy-linked-files
 ```
 
 ## usage
@@ -46,7 +46,7 @@ And our script looks as follows:
 const destinationDir = __dirname;
 
 remark()
-  .use(require('@sergioramos/remark-copy-linked-files'), { destinationDir })
+  .use(require('remark-copy-linked-files'), { destinationDir })
   .use(require('remark-html'))
   .process(VFile({ path, contents }));
 ```

@@ -1,5 +1,5 @@
 {
-  "name": "@sergioramos/remark-copy-linked-files",
+  "name": "remark-copy-linked-files",
   "description": "Find files which are linked to from markdown and copy them to the public directory",
   "version": "1.0.0",
   "repository": "sergioramos/remark-copy-linked-files",
@@ -11,8 +11,8 @@
     "remark-plugin"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
+    "registry": "https://registry.npmjs.com",
+    "access": "public"
   },
   "scripts": {
     "eslint": "eslint . --ext .js",

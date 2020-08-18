@@ -81,33 +81,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sergioramos/remark-copy-linked-files@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@sergioramos/remark-copy-linked-files@workspace:."
-  dependencies:
-    apr-for-each: ^3.0.3
-    apr-intercept: ^3.0.4
-    ava: ^3.11.1
-    c8: ^7.3.0
-    cheerio: ^1.0.0-rc.3
-    cp-file: ^9.0.0
-    eslint: ^7.7.0
-    eslint-config-prettier: ^6.11.0
-    eslint-config-xo-space: ^0.25.0
-    husky: ^4.2.5
-    is-relative-url: ^3.0.0
-    lint-staged: ^10.2.11
-    lodash.uniqby: ^4.7.0
-    mz: ^2.7.0
-    npm-run-all: ^4.1.5
-    prettier: ^2.0.5
-    remark: ^12.0.1
-    remark-html: ^12.0.0
-    rev-hash: ^3.0.0
-    vfile: ^4.2.0
-  languageName: unknown
-  linkType: soft
-
 "@sindresorhus/is@npm:^0.14.0":
   version: 0.14.0
   resolution: "@sindresorhus/is@npm:0.14.0"
@@ -4047,6 +4020,33 @@ fsevents@~2.1.2:
   checksum: 3/50802a1d43efb18505ffc1f242b8af43bde95e95ac2461f453ef21d4bce793d4230076147809f1ade7452afaa537c6e0324dd4a7bc9d83f1b6f5cc7e1300c544
   languageName: node
   linkType: hard
+
+"remark-copy-linked-files@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "remark-copy-linked-files@workspace:."
+  dependencies:
+    apr-for-each: ^3.0.3
+    apr-intercept: ^3.0.4
+    ava: ^3.11.1
+    c8: ^7.3.0
+    cheerio: ^1.0.0-rc.3
+    cp-file: ^9.0.0
+    eslint: ^7.7.0
+    eslint-config-prettier: ^6.11.0
+    eslint-config-xo-space: ^0.25.0
+    husky: ^4.2.5
+    is-relative-url: ^3.0.0
+    lint-staged: ^10.2.11
+    lodash.uniqby: ^4.7.0
+    mz: ^2.7.0
+    npm-run-all: ^4.1.5
+    prettier: ^2.0.5
+    remark: ^12.0.1
+    remark-html: ^12.0.0
+    rev-hash: ^3.0.0
+    vfile: ^4.2.0
+  languageName: unknown
+  linkType: soft
 
 "remark-html@npm:^12.0.0":
   version: 12.0.0
