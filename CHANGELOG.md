@@ -1,3 +1,11 @@
+## [1.0.3](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.2...v1.0.3) (2020-08-25)
+
+### Chores
+
+- **deps-dev:** bump ava from 3.11.1 to 3.12.1 ([5da5443](https://github.com/sergioramos/remark-copy-linked-files/commit/5da544334e3f173cebc322e1966bd8d7ab7b3e93))
+- **deps-dev:** bump lint-staged from 10.2.11 to 10.2.13 ([65b1a3c](https://github.com/sergioramos/remark-copy-linked-files/commit/65b1a3c1805e2ecac12d5d997811aad92a0c1e44))
+- **deps-dev:** bump prettier from 2.0.5 to 2.1.0 ([3f77e18](https://github.com/sergioramos/remark-copy-linked-files/commit/3f77e182fb916c2e30ce9165b185242a90855cce))
+
 ## [1.0.2](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.1...v1.0.2) (2020-08-25)
 
 ### Continuous Integration
