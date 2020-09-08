@@ -1,3 +1,9 @@
+## [1.0.8](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.7...v1.0.8) (2020-09-08)
+
+### Chores
+
+- **deps-dev:** bump lint-staged from 10.2.13 to 10.3.0 ([6da41d4](https://github.com/sergioramos/remark-copy-linked-files/commit/6da41d4c4945a5fa37852a0f898f2722fe38e9fd))
+
 ## [1.0.7](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.6...v1.0.7) (2020-09-08)
 
 ### Chores
