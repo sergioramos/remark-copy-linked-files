@@ -1,3 +1,9 @@
+## [1.0.7](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.6...v1.0.7) (2020-09-08)
+
+### Chores
+
+- **deps-dev:** bump husky from 4.2.5 to 4.3.0 ([07448a3](https://github.com/sergioramos/remark-copy-linked-files/commit/07448a3daee328289560295183eef3943bee70f0))
+
 ## [1.0.6](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.5...v1.0.6) (2020-09-02)
 
 ### Chores
