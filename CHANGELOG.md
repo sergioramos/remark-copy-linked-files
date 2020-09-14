@@ -1,3 +1,9 @@
+## [1.0.10](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.9...v1.0.10) (2020-09-14)
+
+### Chores
+
+- move config to pkg.json ([663315e](https://github.com/sergioramos/remark-copy-linked-files/commit/663315ed1abcb8fe8fff5649dc54c4326a78a924))
+
 ## [1.0.9](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.8...v1.0.9) (2020-09-14)
 
 ### Chores
