@@ -1,3 +1,9 @@
+## [1.0.9](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.8...v1.0.9) (2020-09-14)
+
+### Chores
+
+- **deps-dev:** bump eslint from 7.8.1 to 7.9.0 ([8fa5ab3](https://github.com/sergioramos/remark-copy-linked-files/commit/8fa5ab3dcc93c335bb64bc29f4c844b8b3d316b8))
+
 ## [1.0.8](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.7...v1.0.8) (2020-09-08)
 
 ### Chores
