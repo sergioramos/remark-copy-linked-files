@@ -1,3 +1,9 @@
+## [1.0.11](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.10...v1.0.11) (2020-09-16)
+
+### Chores
+
+- **deps-dev:** bump prettier from 2.1.1 to 2.1.2 ([a22345d](https://github.com/sergioramos/remark-copy-linked-files/commit/a22345daa9bb1d8c480036dd4a06a1fabc54376d))
+
 ## [1.0.10](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.9...v1.0.10) (2020-09-14)
 
 ### Chores
