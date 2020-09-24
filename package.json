@@ -1,7 +1,7 @@
 {
   "name": "remark-copy-linked-files",
   "description": "Find files which are linked to from markdown and copy them to the public directory",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "repository": "sergioramos/remark-copy-linked-files",
   "main": "index.js",
   "keywords": [

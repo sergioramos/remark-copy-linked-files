@@ -1,3 +1,9 @@
+## [1.0.13](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.12...v1.0.13) (2020-09-24)
+
+### Documentation
+
+- add cover ([81a8c1d](https://github.com/sergioramos/remark-copy-linked-files/commit/81a8c1d999a475b126975258d1e7bb3a5b17df17))
+
 ## [1.0.12](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.11...v1.0.12) (2020-09-24)
 
 ### Chores
