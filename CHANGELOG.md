@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.11...v1.0.12) (2020-09-24)
+
+### Chores
+
+- **deps-dev:** bump c8 from 7.3.0 to 7.3.1 ([64ed621](https://github.com/sergioramos/remark-copy-linked-files/commit/64ed6218edbcf2362d50f940f9a9be21ca0fa89c))
+- **deps-dev:** bump lint-staged from 10.3.0 to 10.4.0 ([b3229ed](https://github.com/sergioramos/remark-copy-linked-files/commit/b3229ed42bcdf7aa36f9c2c822284f1dc3e25997))
+
 ## [1.0.11](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.10...v1.0.11) (2020-09-16)
 
 ### Chores
