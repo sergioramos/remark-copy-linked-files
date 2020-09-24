@@ -1,8 +1,10 @@
 # remark-copy-linked-files
 
-Find files which are linked to from markdown and copy them to the public directory
+Find files which are linked to from markdown and copy them to a destination directory. _For the most part, this code is taken directly from [gatsby-remark-copy-linked-files](https://github.com/gatsbyjs/gatsby/tree/56c473221f19131b0894c3cc12a9816ec71ca330/packages/gatsby-remark-copy-linked-files) 🙏_.
 
-_For the most part, this code is taken directly from [gatsby-remark-copy-linked-files](https://github.com/gatsbyjs/gatsby/tree/56c473221f19131b0894c3cc12a9816ec71ca330/packages/gatsby-remark-copy-linked-files) 🙏_
+<div align="center">
+  <img width="898" src="media/cover.png" alt="remark-copy-linked-files">
+</div>
 
 ## installation
 
