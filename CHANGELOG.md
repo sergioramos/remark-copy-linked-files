@@ -1,3 +1,20 @@
+## [1.0.14](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.13...v1.0.14) (2020-10-08)
+
+### Chores
+
+- **deps:** bump actions/setup-node from v2.1.1 to v2.1.2 ([341c69f](https://github.com/sergioramos/remark-copy-linked-files/commit/341c69f17711e9ecff79e7ac67abf8099d83d7d8))
+- **deps:** bump devmasx/coverage-check-action from v1.1.0 to v1.2.0 ([7e6734c](https://github.com/sergioramos/remark-copy-linked-files/commit/7e6734c5487bd29804d2acde357eb025152aa957))
+- **deps:** bump rlespinasse/github-slug-action from 2.1.0 to 2.1.1 ([2620f7a](https://github.com/sergioramos/remark-copy-linked-files/commit/2620f7a7f58524ec7b0e3e54702db04510e7e588))
+- **deps-dev:** bump ava from 3.12.1 to 3.13.0 ([5f579c8](https://github.com/sergioramos/remark-copy-linked-files/commit/5f579c81c397341baaf653b53ff8bd876d1ceb43))
+- **deps-dev:** bump c8 from 7.3.1 to 7.3.2 ([cad5263](https://github.com/sergioramos/remark-copy-linked-files/commit/cad5263cc91bc8f1bae8016af384ee3e7abd3937))
+- **deps-dev:** bump eslint from 7.9.0 to 7.10.0 ([a41f0c1](https://github.com/sergioramos/remark-copy-linked-files/commit/a41f0c18c3bd6e2da560fe855cfe63cc672d7d80))
+- **deps-dev:** bump eslint-config-prettier from 6.11.0 to 6.12.0 ([a6c0c68](https://github.com/sergioramos/remark-copy-linked-files/commit/a6c0c688bb451756f1186a159fefddd23bd54950))
+- **deps-dev:** bump remark-html from 12.0.0 to 13.0.1 ([ab61636](https://github.com/sergioramos/remark-copy-linked-files/commit/ab61636931a476ace2249f904704aec2857390b3))
+
+### Continuous Integration
+
+- **no-release:** don't release on deps-dep ([1d9ccff](https://github.com/sergioramos/remark-copy-linked-files/commit/1d9ccffa572e774ebbba541a0d8987b646417354))
+
 ## [1.0.13](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.12...v1.0.13) (2020-09-24)
 
 ### Documentation
