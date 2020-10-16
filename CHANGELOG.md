@@ -1,3 +1,9 @@
+## [1.0.16](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.15...v1.0.16) (2020-10-16)
+
+### Continuous Integration
+
+- don't release on deps-dev scope ([f054d27](https://github.com/sergioramos/remark-copy-linked-files/commit/f054d27a072fd61354dd3a12581d45a6562702f7))
+
 ## [1.0.15](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.14...v1.0.15) (2020-10-16)
 
 ### Chores
