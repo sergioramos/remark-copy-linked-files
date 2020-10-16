@@ -1,3 +1,13 @@
+## [1.0.15](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.14...v1.0.15) (2020-10-16)
+
+### Chores
+
+- **deps-dev:** bump actions/cache from v2.1.1 to v2.1.2 ([95ab4d5](https://github.com/sergioramos/remark-copy-linked-files/commit/95ab4d5b71144a085c887195d74dffa4e5172c34))
+- **deps-dev:** bump c8 from 7.3.2 to 7.3.3 ([191a3c4](https://github.com/sergioramos/remark-copy-linked-files/commit/191a3c46e021ab94b45f1425bcd6b8f13d2642e8))
+- **deps-dev:** bump c8 from 7.3.3 to 7.3.4 ([ead759b](https://github.com/sergioramos/remark-copy-linked-files/commit/ead759b604e884463090b49449f70cbd728b13f2))
+- **deps-dev:** bump eslint from 7.10.0 to 7.11.0 ([944d221](https://github.com/sergioramos/remark-copy-linked-files/commit/944d221a14a2efe2f9737a134ba3ec4b4b68d6e2))
+- **deps-dev:** bump remark from 12.0.1 to 13.0.0 ([de3d25b](https://github.com/sergioramos/remark-copy-linked-files/commit/de3d25bb734e08cd7677ccc4e5551a154006f7e3))
+
 ## [1.0.14](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.13...v1.0.14) (2020-10-08)
 
 ### Chores
