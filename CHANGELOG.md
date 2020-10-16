@@ -1,3 +1,9 @@
+## [1.0.17](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.16...v1.0.17) (2020-10-16)
+
+### Continuous Integration
+
+- remove blank line ([71e41c4](https://github.com/sergioramos/remark-copy-linked-files/commit/71e41c4a4acef9ef72a55231c7bb9d2f0b666785))
+
 ## [1.0.16](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.15...v1.0.16) (2020-10-16)
 
 ### Continuous Integration
