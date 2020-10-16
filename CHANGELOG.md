@@ -1,3 +1,9 @@
+## [1.0.18](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.17...v1.0.18) (2020-10-16)
+
+### Chores
+
+- **deps-dev:** bump ridedott/release-me-action to v3.2.3 ([29bb6b8](https://github.com/sergioramos/remark-copy-linked-files/commit/29bb6b885888151e9d9166d233544ca64410c164))
+
 ## [1.0.17](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.16...v1.0.17) (2020-10-16)
 
 ### Continuous Integration
