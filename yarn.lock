@@ -2872,7 +2872,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^10.4.0":
+"lint-staged@npm:^10.4.2":
   version: 10.5.1
   resolution: "lint-staged@npm:10.5.1"
   dependencies:
@@ -4066,7 +4066,7 @@ fsevents@~2.1.2:
     eslint-config-xo-space: ^0.25.0
     husky: ^4.3.0
     is-relative-url: ^3.0.0
-    lint-staged: ^10.4.0
+    lint-staged: ^10.4.2
     lodash.uniqby: ^4.7.0
     mz: ^2.7.0
     npm-run-all: ^4.1.5
