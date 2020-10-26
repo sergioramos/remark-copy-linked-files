@@ -664,9 +664,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c8@npm:^7.3.4":
-  version: 7.3.4
-  resolution: "c8@npm:7.3.4"
+"c8@npm:^7.3.5":
+  version: 7.3.5
+  resolution: "c8@npm:7.3.5"
   dependencies:
     "@bcoe/v8-coverage": ^0.2.3
     "@istanbuljs/schema": ^0.1.2
@@ -678,12 +678,12 @@ __metadata:
     istanbul-reports: ^3.0.2
     rimraf: ^3.0.0
     test-exclude: ^6.0.0
-    v8-to-istanbul: ^6.0.1
+    v8-to-istanbul: ^7.0.0
     yargs: ^16.0.0
     yargs-parser: ^20.0.0
   bin:
     c8: bin/c8.js
-  checksum: 3/d2c7f37e3fa8639a13cb8796d82d2a8c42b73c9f43076ee5d7d5265791198aedb6bf12cc7e6ae56bf04b102fca3d4789fcfaa401f6821715513d6eaae6cf902b
+  checksum: 3/ddd22e57d9f0a910e632a2f551da2e537f32b8a55a5f44e90011890f95321c9b5f20b0896554c2a94607d23f430879670a5b0d82ccab45e065ca8f9955cae27e
   languageName: node
   linkType: hard
 
@@ -4030,7 +4030,7 @@ fsevents@~2.1.2:
     apr-for-each: ^3.0.3
     apr-intercept: ^3.0.4
     ava: ^3.13.0
-    c8: ^7.3.4
+    c8: ^7.3.5
     cheerio: ^1.0.0-rc.3
     cp-file: ^9.0.0
     eslint: ^7.11.0
@@ -5080,14 +5080,14 @@ resolve@^1.10.0:
   languageName: node
   linkType: hard
 
-"v8-to-istanbul@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "v8-to-istanbul@npm:6.0.1"
+"v8-to-istanbul@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "v8-to-istanbul@npm:7.0.0"
   dependencies:
     "@types/istanbul-lib-coverage": ^2.0.1
     convert-source-map: ^1.6.0
     source-map: ^0.7.3
-  checksum: 3/603ff8f3b038c800e3df8b714fc3f7a8cce674bf6d456b3f5619a01b989e0982c990f9cd536ddd3fcdc537a9ec87cb1f2e60bc40dc3b488bfedfcab6e377d766
+  checksum: 3/9c9edb5c0a4d6feab236e8fab1c378704021794d1addde4713771056b0d75e096bc81d6ff2828448dd7d0b29b6b38812e8b97a8063401e8b1f91a051230236dc
   languageName: node
   linkType: hard
 
