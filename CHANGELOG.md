@@ -1,3 +1,22 @@
+## [1.0.19](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.18...v1.0.19) (2020-11-14)
+
+### Chores
+
+- **deps:** bump actions/cache from v2.1.2 to v2.1.3 ([c5d6f7e](https://github.com/sergioramos/remark-copy-linked-files/commit/c5d6f7e25c79e9c79e2401d7694376f5cbdc12ed))
+- **deps:** bump ridedott/release-me-action from v3.2.3 to v3.2.5 ([24012e2](https://github.com/sergioramos/remark-copy-linked-files/commit/24012e20af33b754e19b146d5b7c5e6697bef5cb))
+- **deps:** bump rlespinasse/github-slug-action from 2.1.1 to 3.1.0 ([30cf5a4](https://github.com/sergioramos/remark-copy-linked-files/commit/30cf5a4646095f940e3d5e406c577258031341d1))
+- **deps:** bump wagoid/commitlint-github-action from v2.0.2 to v2.1.1 ([13ad365](https://github.com/sergioramos/remark-copy-linked-files/commit/13ad36580c6a11d4f08135f558c1a705ed7ba7cc))
+- **deps-dev:** bump c8 from 7.3.4 to 7.3.5 ([0a1e9fd](https://github.com/sergioramos/remark-copy-linked-files/commit/0a1e9fd805462f5ef7c1504fcf1456790aae2099))
+- **deps-dev:** bump eslint from 7.11.0 to 7.12.0 ([06a7b1e](https://github.com/sergioramos/remark-copy-linked-files/commit/06a7b1e76cb5dd77c56c110c7c10025a95822ef3))
+- **deps-dev:** bump eslint-config-prettier from 6.12.0 to 6.13.0 ([86bf0ff](https://github.com/sergioramos/remark-copy-linked-files/commit/86bf0ffe10ebed187a9c8e27ac488f807321211c))
+- **deps-dev:** bump lint-staged from 10.4.0 to 10.4.2 ([d925d01](https://github.com/sergioramos/remark-copy-linked-files/commit/d925d01e0276d4e46991ec835671aad1ffa405c1))
+- **deps-dev:** upgrade dependencies ([ab91b0f](https://github.com/sergioramos/remark-copy-linked-files/commit/ab91b0f46428daeb698ed39d0d5e0aa3bc139a8d))
+- **deps-dev:** upgrade yarn ([e50ed90](https://github.com/sergioramos/remark-copy-linked-files/commit/e50ed90b46d26c27769dc5409187136074790627))
+
+### Continuous Integration
+
+- add commitlint config ([8b39aa6](https://github.com/sergioramos/remark-copy-linked-files/commit/8b39aa674bba4bcbf83988d09e7c7b8e5ccdf012))
+
 ## [1.0.18](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.17...v1.0.18) (2020-10-16)
 
 ### Chores
