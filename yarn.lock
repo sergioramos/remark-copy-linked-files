@@ -1850,7 +1850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^6.13.0":
+"eslint-config-prettier@npm:^6.15.0":
   version: 6.15.0
   resolution: "eslint-config-prettier@npm:6.15.0"
   dependencies:
@@ -1918,7 +1918,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.12.0":
+"eslint@npm:^7.13.0":
   version: 7.13.0
   resolution: "eslint@npm:7.13.0"
   dependencies:
@@ -3287,7 +3287,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^10.4.2":
+"lint-staged@npm:^10.5.1":
   version: 10.5.1
   resolution: "lint-staged@npm:10.5.1"
   dependencies:
@@ -4618,12 +4618,12 @@ fsevents@~2.1.2:
     c8: ^7.3.5
     cheerio: ^1.0.0-rc.3
     cp-file: ^9.0.0
-    eslint: ^7.12.0
-    eslint-config-prettier: ^6.13.0
+    eslint: ^7.13.0
+    eslint-config-prettier: ^6.15.0
     eslint-config-xo-space: ^0.25.0
     husky: ^4.3.0
     is-relative-url: ^3.0.0
-    lint-staged: ^10.4.2
+    lint-staged: ^10.5.1
     lodash.uniqby: ^4.7.0
     mz: ^2.7.0
     npm-run-all: ^4.1.5
