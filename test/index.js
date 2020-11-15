@@ -4,7 +4,7 @@ const test = require('ava');
 const { transform } = require('@babel/core');
 const { readFile, writeFile, readdirSync } = require('mz/fs');
 const mdx = require('@mdx-js/mdx');
-const { join } = require('path');
+const { join, relative, sep } = require('path');
 const prettier = require('prettier');
 const Parallel = require('apr-parallel');
 const rollup = require('rollup');
@@ -130,26 +130,27 @@ const compileHtml = async (filepath, options) => {
 
 const compileAll = async (name, options = {}) => {
   const filepath = join(FIXTURES, `${name}.md`);
+  const { outputName = name, ...opts } = options;
 
   const { html, jsx } = await Parallel({
     html: async () => {
       const output = await compileHtml(filepath, {
-        ...options,
+        ...opts,
         destinationDir: join(options.destinationDir, 'html'),
         staticPath: '/html',
       });
 
-      await writeFile(join(OUTPUTS, `${name}.html`), output);
+      await writeFile(join(OUTPUTS, `${outputName}.html`), output);
       return output;
     },
     jsx: async () => {
       const output = await compileJsx(filepath, {
-        ...options,
+        ...opts,
         destinationDir: join(options.destinationDir, 'jsx'),
         staticPath: '/jsx',
       });
 
-      await writeFile(join(OUTPUTS, `${name}.jsx.html`), output);
+      await writeFile(join(OUTPUTS, `${outputName}.jsx.html`), output);
       return output;
     },
   });
@@ -171,3 +172,30 @@ for (const name of fixtures) {
     t.snapshot(jsx);
   });
 }
+
+test('buildUrl', async (t) => {
+  const [html, jsx] = await compileAll('all', {
+    outputName: 'build-url',
+    destinationDir: OUTPUTS,
+    buildUrl: ({ filename, fullpath }) => {
+      const splitFullPath = fullpath.split(sep);
+      const lastPathPart = splitFullPath.pop();
+      if (lastPathPart.match('index')) {
+        splitFullPath.pop();
+      }
+
+      const relativePath = relative(
+        splitFullPath.join(sep),
+        join(__dirname, 'pages'),
+      );
+
+      return join(relativePath, 'md-media-copies', filename).replace(
+        /\\/g,
+        '/',
+      );
+    },
+  });
+
+  t.snapshot(html);
+  t.snapshot(jsx);
+});
