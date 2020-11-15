@@ -28,8 +28,17 @@ const map = async (tree, iteratee) => {
   return preorder(tree, null, null);
 };
 
+function defaultMakeNewUrlFn({ filename, staticPath }) {
+  return resolve('/', staticPath, filename);
+}
+
 module.exports = (opts = {}) => {
-  const { destinationDir, staticPath = '/', ignoreFileExtensions = [] } = opts;
+  const {
+    destinationDir,
+    staticPath = '/',
+    ignoreFileExtensions = [],
+    makeNewUrlFn = defaultMakeNewUrlFn,
+  } = opts;
 
   return async (tree, { cwd, path }) => {
     const assets = [];
@@ -56,7 +65,7 @@ module.exports = (opts = {}) => {
       return {
         fullpath,
         filename,
-        url: resolve('/', staticPath, filename),
+        url: makeNewUrlFn({ staticPath, filename, fullpath, name, rev }),
       };
     };
 
