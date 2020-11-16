@@ -61,11 +61,20 @@ module.exports = (opts = {}) => {
       const rev = revHash(await readFile(fullpath));
       const name = basename(fullpath, ext);
       const filename = `${name}-${rev}${ext}`;
+      const newUrl = makeNewUrlFn({
+        staticPath,
+        filename,
+        fullpath,
+        name,
+        rev,
+      });
+
+      console.log(`fullpath ${fullpath} will become ${newUrl}`);
 
       return {
         fullpath,
         filename,
-        url: makeNewUrlFn({ staticPath, filename, fullpath, name, rev }),
+        url: newUrl,
       };
     };
 
@@ -134,8 +143,22 @@ module.exports = (opts = {}) => {
     await ForEach(
       UniqBy(assets.filter(Boolean), 'filename'),
       async ({ fullpath, filename }) => {
-        return Cp(fullpath, join(destinationDir, filename));
+        const destPath = join(destinationDir, filename);
+        console.log(`Will copy from ${fullpath} to ${destPath}`);
+        try {
+          await Cp(fullpath, destPath);
+        } catch (error) {
+          console.log(`Error on ${fullpath}`);
+          console.log(error);
+        }
+
+        if (await exists(fullpath)) {
+          console.log(`${fullpath} does exist`);
+        } else {
+          console.log(`${fullpath} does not exist`);
+        }
       },
+      {},
     );
 
     return newTree;
