@@ -1,3 +1,13 @@
+## [1.0.20](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.19...v1.0.20) (2020-11-16)
+
+### Chores
+
+- **deps:** bump ridedott/release-me-action from v3.2.5 to v3.2.6 ([a3e368b](https://github.com/sergioramos/remark-copy-linked-files/commit/a3e368be2462a73e1c400e173ab665e76458e7d8))
+
+### Tests
+
+- add more test cases (including jsx) ([55e30da](https://github.com/sergioramos/remark-copy-linked-files/commit/55e30dae29097e024f73849215a40c992ca7f228))
+
 ## [1.0.19](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.18...v1.0.19) (2020-11-14)
 
 ### Chores
