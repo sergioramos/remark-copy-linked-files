@@ -1,124 +1,173 @@
 const plugin = require('../');
 
-const { join } = require('path');
-const { readFile, writeFile } = require('mz/fs');
-const prettier = require('prettier');
-const remark = require('remark');
 const test = require('ava');
-const VFile = require('vfile');
+const { transform } = require('@babel/core');
+const { readFile, writeFile, readdirSync } = require('mz/fs');
+const mdx = require('@mdx-js/mdx');
+const { join } = require('path');
+const prettier = require('prettier');
+const Parallel = require('apr-parallel');
+const rollup = require('rollup');
+const React = require('react');
+const ReactDOM = require('react-dom/server');
+const virtual = require('@rollup/plugin-virtual');
+const vfile = require('to-vfile');
+const unified = require('unified');
 
 const FIXTURES = join(__dirname, 'fixtures');
 const OUTPUTS = join(__dirname, 'outputs');
 
-const compile = async (src, options) => {
+const compileJsx = async (filepath, options) => {
   const config = await prettier.resolveConfig(__filename);
 
-  const handleResult = (resolve, reject) => {
-    return (err, file) => {
-      return err
-        ? reject(err)
-        : resolve(prettier.format(String(file), { ...config, parser: 'html' }));
-    };
+  const prettify = (str) => {
+    return prettier.format(str, { ...config, parser: 'html' });
+  };
+
+  const src = await readFile(filepath);
+  const jsx = await mdx(src, {
+    commonmark: true,
+    gfm: true,
+    filepath,
+    remarkPlugins: [
+      /prism\.md$/.test(filepath)
+        ? [
+            require('remark-prism'),
+            {
+              plugins: [
+                'autolinker',
+                'command-line',
+                'data-uri-highlight',
+                'diff-highlight',
+                'inline-color',
+                'keep-markup',
+                'line-numbers',
+                'treeview',
+              ],
+            },
+          ]
+        : null,
+      [plugin, options],
+    ].filter(Boolean),
+  });
+
+  const { code } = transform(jsx.replace(/^\/\*\s*?@jsx\s*?mdx\s\*\//, ''), {
+    sourceType: 'module',
+    presets: [require.resolve('@babel/preset-react')],
+  });
+
+  const bundle = await rollup.rollup({
+    input: 'main.js',
+    treeshake: true,
+    plugins: [
+      virtual({
+        'main.js': "import React from 'react';\n"
+          .concat(`const mdx = React.createElement;\n`)
+          .concat(code),
+      }),
+      require('rollup-plugin-babel')({
+        sourceType: 'module',
+        presets: [require.resolve('@babel/preset-react')],
+      }),
+    ],
+  });
+
+  const result = await bundle.generate({
+    format: 'iife',
+    name: 'Main',
+    exports: 'named',
+    globals: {
+      react: 'React',
+    },
+  });
+
+  // eslint-disable-next-line no-new-func
+  const fn = new Function('React', `${result.output[0].code};\nreturn Main;`);
+  const element = React.createElement(fn(React).default);
+
+  return prettify(ReactDOM.renderToStaticMarkup(element));
+};
+
+const compileHtml = async (filepath, options) => {
+  const config = await prettier.resolveConfig(__filename);
+
+  const prettify = (str) => {
+    return prettier.format(str, { ...config, parser: 'html' });
   };
 
   return new Promise((resolve, reject) => {
-    return remark()
+    const file = vfile.readSync(filepath);
+    let compiler = unified().use(require('remark-parse'));
+
+    if (/prism\.md$/.test(filepath)) {
+      compiler = compiler.use(require('remark-prism'), {
+        plugins: [
+          'autolinker',
+          'command-line',
+          'data-uri-highlight',
+          'diff-highlight',
+          'inline-color',
+          'keep-markup',
+          'line-numbers',
+          'treeview',
+        ],
+      });
+    }
+
+    return compiler
       .use(plugin, options)
+      .use(require('remark-stringify'))
       .use(require('remark-html'))
-      .process(src, handleResult(resolve, reject));
+      .process(file, (err, file) => {
+        if (err) {
+          return reject(err);
+        }
+
+        return resolve(prettify(String(file)));
+      });
   });
 };
 
-test('all', async (t) => {
-  const path = join(FIXTURES, 'all.md');
-  const contents = await readFile(path);
-  const output = await compile(VFile({ path, contents }), {
-    destinationDir: OUTPUTS,
+const compileAll = async (name, options = {}) => {
+  const filepath = join(FIXTURES, `${name}.md`);
+
+  const { html, jsx } = await Parallel({
+    html: async () => {
+      const output = await compileHtml(filepath, {
+        ...options,
+        destinationDir: join(options.destinationDir, 'html'),
+        staticPath: '/html',
+      });
+
+      await writeFile(join(OUTPUTS, `${name}.html`), output);
+      return output;
+    },
+    jsx: async () => {
+      const output = await compileJsx(filepath, {
+        ...options,
+        destinationDir: join(options.destinationDir, 'jsx'),
+        staticPath: '/jsx',
+      });
+
+      await writeFile(join(OUTPUTS, `${name}.jsx.html`), output);
+      return output;
+    },
   });
 
-  await writeFile(join(OUTPUTS, 'all.html'), output);
+  return [html, jsx];
+};
 
-  t.snapshot(output);
-});
+const fixtures = readdirSync(FIXTURES)
+  .filter((filename) => /\.md$/.test(filename))
+  .map((filename) => filename.replace(/\.md$/, ''));
 
-test('files', async (t) => {
-  const path = join(FIXTURES, 'files.md');
-  const contents = await readFile(path);
-  const output = await compile(VFile({ path, contents }), {
-    destinationDir: OUTPUTS,
+for (const name of fixtures) {
+  test(name, async (t) => {
+    const [html, jsx] = await compileAll(name, {
+      destinationDir: OUTPUTS,
+    });
+
+    t.snapshot(html);
+    t.snapshot(jsx);
   });
-
-  await writeFile(join(OUTPUTS, 'files.html'), output);
-
-  t.snapshot(output);
-});
-
-test('html-images', async (t) => {
-  const path = join(FIXTURES, 'html-images.md');
-  const contents = await readFile(path);
-  const output = await compile(VFile({ path, contents }), {
-    destinationDir: OUTPUTS,
-  });
-
-  await writeFile(join(OUTPUTS, 'html-images.html'), output);
-
-  t.snapshot(output);
-});
-
-test('html-links', async (t) => {
-  const path = join(FIXTURES, 'html-links.md');
-  const contents = await readFile(path);
-  const output = await compile(VFile({ path, contents }), {
-    destinationDir: OUTPUTS,
-  });
-
-  await writeFile(join(OUTPUTS, 'html-links.html'), output);
-
-  t.snapshot(output);
-});
-
-test('html-videos', async (t) => {
-  const path = join(FIXTURES, 'html-videos.md');
-  const contents = await readFile(path);
-  const output = await compile(VFile({ path, contents }), {
-    destinationDir: OUTPUTS,
-  });
-
-  await writeFile(join(OUTPUTS, 'html-videos.html'), output);
-
-  t.snapshot(output);
-});
-
-test('images', async (t) => {
-  const path = join(FIXTURES, 'images.md');
-  const contents = await readFile(path);
-  const output = await compile(VFile({ path, contents }), {
-    destinationDir: OUTPUTS,
-  });
-
-  await writeFile(join(OUTPUTS, 'images.html'), output);
-
-  t.snapshot(output);
-});
-
-test('references', async (t) => {
-  const path = join(FIXTURES, 'references.md');
-  const contents = await readFile(path);
-  const output = await compile(VFile({ path, contents }), {
-    destinationDir: OUTPUTS,
-  });
-
-  await writeFile(join(OUTPUTS, 'references.html'), output);
-
-  t.snapshot(output);
-});
-
-test('no vfile', async (t) => {
-  const output = await compile(await readFile(join(FIXTURES, 'images.md')), {
-    destinationDir: OUTPUTS,
-  });
-
-  await writeFile(join(OUTPUTS, 'no-vfile.html'), output);
-
-  t.snapshot(output);
-});
+}
