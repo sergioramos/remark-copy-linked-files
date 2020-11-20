@@ -38,6 +38,7 @@ module.exports = (opts = {}) => {
     staticPath = '/',
     ignoreFileExtensions = [],
     buildUrl = defaultUrlBuilder,
+    selectors: customSelectors = [],
   } = opts;
 
   return async (tree, { cwd, path }) => {
@@ -97,13 +98,15 @@ module.exports = (opts = {}) => {
           ['a[href]', 'href'],
         ];
 
-        const urls = selectors.reduce((memo, [selector, attr]) => {
-          return memo.concat(
-            $(selector)
-              .toArray()
-              .map(({ attribs }) => attribs[attr]),
-          );
-        }, []);
+        const urls = selectors
+          .concat(customSelectors)
+          .reduce((memo, [selector, attr]) => {
+            return memo.concat(
+              $(selector)
+                .toArray()
+                .map(({ attribs }) => attribs[attr]),
+            );
+          }, []);
 
         await ForEach(urls, async (url) => {
           const asset = await handleUrl(url);
