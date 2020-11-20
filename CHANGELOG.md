@@ -1,3 +1,14 @@
+## [1.0.21](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.20...v1.0.21) (2020-11-20)
+
+### Bug Fixes
+
+- add mz as a dependency ([f6a6564](https://github.com/sergioramos/remark-copy-linked-files/commit/f6a6564656d03972ce6aec0b27f138a364e32b94)), closes [#36](https://github.com/sergioramos/remark-copy-linked-files/issues/36)
+
+### Chores
+
+- upgrade dependencies ([d63bf9c](https://github.com/sergioramos/remark-copy-linked-files/commit/d63bf9c0ca821efc5422e914e51dd26db5c58da6))
+- **deps:** bump ridedott/release-me-action from v3.2.6 to v3.2.11 ([0202d92](https://github.com/sergioramos/remark-copy-linked-files/commit/0202d9228b6fac15be8959453a292f34b87e8b46))
+
 ## [1.0.20](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.19...v1.0.20) (2020-11-16)
 
 ### Chores
