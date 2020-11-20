@@ -1,3 +1,9 @@
+# [1.1.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.21...v1.1.0) (2020-11-20)
+
+### Features
+
+- add support for custom url builder ([a76c6d2](https://github.com/sergioramos/remark-copy-linked-files/commit/a76c6d26aa6053185b574fc389cc5a172f2c8384))
+
 ## [1.0.21](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.20...v1.0.21) (2020-11-20)
 
 ### Bug Fixes
