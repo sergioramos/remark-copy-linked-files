@@ -17,6 +17,22 @@ const unified = require('unified');
 const FIXTURES = join(__dirname, 'fixtures');
 const OUTPUTS = join(__dirname, 'outputs');
 
+const mp4 = `
+import React from 'react';
+
+export default ({ src }) => {
+  return React.createElement("video", {
+      controls: "controls",
+      autoplay: true,
+      loop: true
+    }, React.createElement("source", {
+      type: "video/mp4",
+      src: src
+    }),
+  );
+};
+`;
+
 const compileJsx = async (filepath, options) => {
   const config = await prettier.resolveConfig(__filename);
 
@@ -61,6 +77,7 @@ const compileJsx = async (filepath, options) => {
     treeshake: true,
     plugins: [
       virtual({
+        'mp4.js': mp4,
         'main.js': "import React from 'react';\n"
           .concat(`const mdx = React.createElement;\n`)
           .concat(code),
