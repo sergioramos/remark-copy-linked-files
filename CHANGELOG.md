@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.1.0...v1.2.0) (2020-11-21)
+
+### Features
+
+- allow to custom selectors to be defined ([91300a4](https://github.com/sergioramos/remark-copy-linked-files/commit/91300a494de91b999887338355abae20ea2e1bbb))
+
 # [1.1.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.0.21...v1.1.0) (2020-11-20)
 
 ### Features
