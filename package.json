@@ -60,12 +60,6 @@
     "unified": "^9.2.0",
     "vfile": "^4.2.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
