@@ -39,6 +39,7 @@ module.exports = (opts = {}) => {
     ignoreFileExtensions = [],
     buildUrl = defaultUrlBuilder,
     selectors: customSelectors = [],
+    transformAsset,
   } = opts;
 
   return async (tree, { cwd, path }) => {
@@ -124,9 +125,13 @@ module.exports = (opts = {}) => {
         });
       },
       url: async (node) => {
-        const asset = await handleUrl(node.url);
+        let asset = await handleUrl(node.url);
+        if (transformAsset) {
+          asset = transformAsset(asset);
+        }
 
         assets.push(asset);
+
         return Object.assign(node, {
           url: asset ? asset.url || node.url : node.url,
         });
