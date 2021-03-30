@@ -1,3 +1,22 @@
+# [1.3.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.2.0...v1.3.0) (2021-03-30)
+
+### Chores
+
+- upgrade dependencies ([31d91fb](https://github.com/sergioramos/remark-copy-linked-files/commit/31d91fbf768a50c8931ea3ac10d4ce7636c1d40b))
+- **deps:** bump actions/cache from v2.1.3 to v2.1.4 ([5f8239a](https://github.com/sergioramos/remark-copy-linked-files/commit/5f8239acfee0f1b78922bf14672c487caac3cccf))
+- **deps:** bump actions/setup-node from v2.1.2 to v2.1.5 ([dc860b3](https://github.com/sergioramos/remark-copy-linked-files/commit/dc860b3d485da6fb9e45013f6d18364f2763cb1f))
+- **deps:** bump ridedott/release-me-action from v3.2.11 to v3.5.11 ([158b07e](https://github.com/sergioramos/remark-copy-linked-files/commit/158b07e3926475c7a5c8040bd08a6cd838cf0371))
+- **deps-dev:** bump ridedott/release-me-action from v3.2.11 to v3.2.12 ([a96cbcb](https://github.com/sergioramos/remark-copy-linked-files/commit/a96cbcb04e07cb3681ffd78c275f615b7f43478d))
+- **deps-dev:** bump wagoid/commitlint-github-action from v2.1.1 to v2.1.2 ([79e045b](https://github.com/sergioramos/remark-copy-linked-files/commit/79e045bcf05ed4358dfd845dd40f392863375a93))
+
+### Features
+
+- add transform asset ability ([2c45ad6](https://github.com/sergioramos/remark-copy-linked-files/commit/2c45ad61224432e892e0eeeeedd8080abf9fda98))
+
+### Tests
+
+- assert test files ([ecf39ec](https://github.com/sergioramos/remark-copy-linked-files/commit/ecf39ec44adef8c7012ff313b64ab89c63b2a7cb))
+
 # [1.2.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.1.0...v1.2.0) (2020-11-21)
 
 ### Features
