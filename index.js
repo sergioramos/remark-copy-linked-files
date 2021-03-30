@@ -43,7 +43,8 @@ module.exports = (opts = {}) => {
     transformAsset,
   } = opts;
 
-  return async (tree, { cwd, path }) => {
+  return async (tree, { cwd, path: cPath, pathname: cPathname }) => {
+    const path = cPath || cPathname; // #121
     const assets = [];
 
     const handleUrl = async (url) => {
