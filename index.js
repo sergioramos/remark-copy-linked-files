@@ -1,6 +1,7 @@
 const cheerio = require('cheerio');
 const Cp = require('cp-file');
 const { default: ForEach } = require('apr-for-each');
+const Reduce = require('apr-reduce');
 const Intercept = require('apr-intercept');
 const isRelativeUrl = require('is-relative-url');
 const { readFile, exists } = require('mz/fs');
@@ -147,6 +148,42 @@ module.exports = (opts = {}) => {
           ],
         });
       },
+      mdxBlockElement: async (node) => {
+        const { attributes = [] } = node;
+        const selectors = ['poster', 'src', 'href', 'value'];
+
+        return Reduce(
+          attributes,
+          async (node, attr, atIndex) => {
+            const { name, value } = attr;
+            const { attributes = [] } = node;
+
+            const selector = selectors.find((selector) => {
+              return selector === name;
+            });
+
+            if (!selector) {
+              return node;
+            }
+
+            const nUrl = await handleUrl(value);
+            const asset = transformAsset ? await transformAsset(nUrl) : nUrl;
+
+            assets.push(asset);
+            return Object.assign(node, {
+              attributes: attributes.map((item, index) => {
+                return index === atIndex
+                  ? { ...attr, value: asset ? asset.url || value : value }
+                  : item;
+              }),
+            });
+          },
+          node,
+        );
+      },
+      mdxSpanElement: (...args) => handlers.mdxBlockElement(...args),
+      mdxJsxFlowElement: (...args) => handlers.mdxBlockElement(...args),
+      mdxJsxTextElement: (...args) => handlers.mdxBlockElement(...args),
     };
 
     const newTree = await map(tree, async (node) => {

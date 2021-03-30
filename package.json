@@ -22,6 +22,7 @@
   "dependencies": {
     "apr-for-each": "^3.0.3",
     "apr-intercept": "^3.0.4",
+    "apr-reduce": "^3.0.3",
     "cheerio": "^1.0.0-rc.5",
     "cp-file": "^9.0.0",
     "is-relative-url": "^3.0.0",
@@ -34,7 +35,8 @@
     "@babel/preset-react": "^7.13.13",
     "@commitlint/cli": "^12.1.0",
     "@commitlint/config-conventional": "^12.1.0",
-    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/mdx": "^2.0.0-next.9",
+    "@mdx-js/react": "^2.0.0-next.9",
     "@rollup/plugin-virtual": "^2.0.3",
     "apr-map": "^3.0.3",
     "apr-parallel": "^3.0.3",

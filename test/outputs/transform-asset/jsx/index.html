@@ -1,25 +1,27 @@
-<wrapper mdxType="MDXLayout"
-  ><p><a parentName="p" href="files/sample-file.txt">path to file</a></p>
-  <img src="images/sample-image.png" /><img
-    src="images/sample-image.jpeg" /><img src="images/sample-image.jpg" /><a
-    href="files/sample-file.txt"
-    >link to file</a
-  ><a href="http://example.com/">Link to example.com</a>
+<wrapper
+  ><p><a href="files/sample-file.txt" parentName="p">path to file</a></p>
+  <img src="images/sample-image.png" />
+  <img src="images/sample-image.jpeg" />
+  <img src="images/sample-image.jpg" />
   <p>
-    <img parentName="p" src="images/sample-image.svg" alt="some svg image" />
-    <img parentName="p" src="images/sample-image.gif" alt="some gif image" />
-    <img parentName="p" src="images/sample-image.png" alt="some png image" />
-    <img parentName="p" src="images/sample-image.jpg" alt="some jpg image" />
-    <img parentName="p" src="images/sample-image.jpeg" alt="some jpeg image" />
+    <a href="files/sample-file.txt" parentName="p">link to file</a>
+    <a href="http://example.com/" parentName="p">Link to example.com</a>
+  </p>
+  <p>
+    <img src="images/sample-image.svg" alt="some svg image" parentName="p" />
+    <img src="images/sample-image.gif" alt="some gif image" parentName="p" />
+    <img src="images/sample-image.png" alt="some png image" parentName="p" />
+    <img src="images/sample-image.jpg" alt="some jpg image" parentName="p" />
+    <img src="images/sample-image.jpeg" alt="some jpeg image" parentName="p" />
     <img
-      parentName="p"
       src="https://google.com/images/sample-image.gif"
       alt="some absolute image"
+      parentName="p"
     />
   </p>
   <video controls="" loop="">
-    <source type="video/mp4" src="videos/sample-video.mp4" />
-    <p>Your browser does not support the video element.</p>
-  </video>
-  <p><img parentName="p" src="images/sample-image.png" alt="sample" /></p
+    <source type="video/mp4" src="videos/sample-video.mp4" parentName="video" />
+    <p parentName="video">
+      <img src="images/sample-image.png" alt="sample" parentName="p" />
+    </p></video
 ></wrapper>
