@@ -3,7 +3,13 @@ const plugin = require('../');
 const test = require('ava');
 const { transform } = require('@babel/core');
 const { readFile, writeFile, readdirSync } = require('mz/fs');
+const { fromFile } = require('hasha');
+const { default: ForEach } = require('apr-for-each');
+const Flatten = require('lodash.flatten');
+const list = require('ls-all');
+const { default: Map } = require('apr-map');
 const mdx = require('@mdx-js/mdx');
+const MkDir = require('make-dir');
 const { join, relative, sep } = require('path');
 const prettier = require('prettier');
 const Parallel = require('apr-parallel');
@@ -147,32 +153,56 @@ const compileHtml = async (filepath, options) => {
 
 const compileAll = async (name, options = {}) => {
   const filepath = join(FIXTURES, `${name}.md`);
-  const { outputName = name, ...opts } = options;
+  const { outputName = name, destinationDir, ...opts } = options;
+
+  const htmlDestDir = join(destinationDir, outputName, 'html');
+  const jsxDestDir = join(destinationDir, outputName, 'jsx');
+
+  await ForEach([htmlDestDir, jsxDestDir], async (fullpath) => MkDir(fullpath));
 
   const { html, jsx } = await Parallel({
     html: async () => {
       const output = await compileHtml(filepath, {
         ...opts,
-        destinationDir: join(options.destinationDir, 'html'),
-        staticPath: '/html',
+        destinationDir: htmlDestDir,
+        staticPath: '/',
       });
 
-      await writeFile(join(OUTPUTS, `${outputName}.html`), output);
+      await writeFile(join(htmlDestDir, 'index.html'), output);
       return output;
     },
     jsx: async () => {
       const output = await compileJsx(filepath, {
         ...opts,
-        destinationDir: join(options.destinationDir, 'jsx'),
-        staticPath: '/jsx',
+        destinationDir: jsxDestDir,
+        staticPath: '/',
       });
 
-      await writeFile(join(OUTPUTS, `${outputName}.jsx.html`), output);
+      await writeFile(join(jsxDestDir, 'index.html'), output);
       return output;
     },
   });
 
-  return [html, jsx];
+  const files = Flatten(
+    await Map(
+      await list([htmlDestDir, jsxDestDir], { recurse: true }),
+      async (entry) => {
+        const handleFiles = async ({ path: fullpath, files = [], mode }) => {
+          const { dir } = mode;
+          const hash = dir ? null : await fromFile(fullpath);
+          const pathname = relative(__dirname, fullpath);
+
+          return [dir ? undefined : { pathname, hash }].concat(
+            await Map(files, handleFiles),
+          );
+        };
+
+        return Flatten((await handleFiles(entry)).filter(Boolean));
+      },
+    ),
+  );
+
+  return [html, jsx, files];
 };
 
 const fixtures = readdirSync(FIXTURES)
@@ -181,17 +211,18 @@ const fixtures = readdirSync(FIXTURES)
 
 for (const name of fixtures) {
   test(name, async (t) => {
-    const [html, jsx] = await compileAll(name, {
+    const [html, jsx, files] = await compileAll(name, {
       destinationDir: OUTPUTS,
     });
 
     t.snapshot(html);
     t.snapshot(jsx);
+    t.snapshot(files);
   });
 }
 
 test('buildUrl', async (t) => {
-  const [html, jsx] = await compileAll('all', {
+  const [html, jsx, files] = await compileAll('all', {
     outputName: 'build-url',
     destinationDir: OUTPUTS,
     buildUrl: ({ filename, fullpath }) => {
@@ -215,4 +246,17 @@ test('buildUrl', async (t) => {
 
   t.snapshot(html);
   t.snapshot(jsx);
+  t.snapshot(files);
+});
+
+test('transformAsset', async (t) => {
+  const [html, jsx, files] = await compileAll('all', {
+    outputName: 'transform-asset',
+    destinationDir: OUTPUTS,
+    transformAsset: () => null,
+  });
+
+  t.snapshot(html);
+  t.snapshot(jsx);
+  t.snapshot(files);
 });

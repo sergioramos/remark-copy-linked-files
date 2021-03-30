@@ -84,7 +84,7 @@ module.exports = (opts = {}) => {
     };
 
     const handlers = {
-      html: async (node) => {
+      html: async (node, { selectors: sels = [] } = {}) => {
         let { value: newValue = '' } = node;
         const $ = cheerio.load(newValue);
 
@@ -97,7 +97,7 @@ module.exports = (opts = {}) => {
           ['video[poster]', 'poster'],
           ['object param[value]', 'value'],
           ['a[href]', 'href'],
-        ];
+        ].concat(sels);
 
         const urls = selectors
           .concat(customSelectors)
@@ -110,7 +110,9 @@ module.exports = (opts = {}) => {
           }, []);
 
         await ForEach(urls, async (url) => {
-          const asset = await handleUrl(url);
+          const nUrl = await handleUrl(url);
+          const asset = transformAsset ? await transformAsset(nUrl) : nUrl;
+
           if (!asset) {
             return;
           }
@@ -125,13 +127,10 @@ module.exports = (opts = {}) => {
         });
       },
       url: async (node) => {
-        let asset = await handleUrl(node.url);
-        if (transformAsset) {
-          asset = transformAsset(asset);
-        }
+        const nUrl = await handleUrl(node.url);
+        const asset = transformAsset ? await transformAsset(nUrl) : nUrl;
 
         assets.push(asset);
-
         return Object.assign(node, {
           url: asset ? asset.url || node.url : node.url,
         });
@@ -139,7 +138,15 @@ module.exports = (opts = {}) => {
       link: (...args) => handlers.url(...args),
       definition: (...args) => handlers.url(...args),
       image: (...args) => handlers.url(...args),
-      jsx: (...args) => handlers.html(...args),
+      jsx: (...args) => {
+        return handlers.html(...args, {
+          selectors: [
+            ['[poster]', 'poster'],
+            ['[src]', 'src'],
+            ['[href]', 'href'],
+          ],
+        });
+      },
     };
 
     const newTree = await map(tree, async (node) => {
