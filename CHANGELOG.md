@@ -1,3 +1,9 @@
+# [1.4.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.3.0...v1.4.0) (2021-03-30)
+
+### Features
+
+- add support for mdx v2 ([bb29b60](https://github.com/sergioramos/remark-copy-linked-files/commit/bb29b60398f6ef175cad0d76c3a2b1f9d751f45b))
+
 # [1.3.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.2.0...v1.3.0) (2021-03-30)
 
 ### Chores
