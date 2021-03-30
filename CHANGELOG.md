@@ -1,3 +1,9 @@
+# [1.5.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.4.0...v1.5.0) (2021-03-30)
+
+### Features
+
+- handle `path` and `pathname` ([66af87f](https://github.com/sergioramos/remark-copy-linked-files/commit/66af87f800ba7a18ad8102aff363c883177fc69f)), closes [#121](https://github.com/sergioramos/remark-copy-linked-files/issues/121)
+
 # [1.4.0](https://github.com/sergioramos/remark-copy-linked-files/compare/v1.3.0...v1.4.0) (2021-03-30)
 
 ### Features
