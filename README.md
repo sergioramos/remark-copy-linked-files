@@ -103,6 +103,30 @@ And writes the following files:
 0 directories, 7 files
 ```
 
+## Configuration
+
+This plugin takes the following configuration options:
+
+### `destinationDir`
+
+Path to the directory where the files should be copied.
+This option is mandatory.
+
+### `sourceDir`
+
+Path to the directory where the files should be copied from.
+Use this if the MDX file you are loading is not the one calling this plugin.
+
+Default is the current working directory.
+
+### `staticPath`
+
+Prefix to use in the `src` attribute. Set this if the files are copied in a 
+location that is is not hosted under `/`.
+
+Default is `/`.
+
+
 ## license
 
 BSD-3-Clause
