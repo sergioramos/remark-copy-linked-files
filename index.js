@@ -36,6 +36,7 @@ const defaultUrlBuilder = ({ filename, staticPath }) => {
 module.exports = (opts = {}) => {
   const {
     destinationDir,
+    sourceDir=false,
     staticPath = '/',
     ignoreFileExtensions = [],
     buildUrl = defaultUrlBuilder,
@@ -59,7 +60,7 @@ module.exports = (opts = {}) => {
       }
 
       const fullpath = resolve(
-        cwd,
+        sourceDir ? sourceDir : cwd,
         path ? dirname(path) : '',
         platformNormalizedUrl,
       );
