@@ -34,7 +34,7 @@
     "@babel/core": "^7.13.13",
     "@babel/preset-react": "^7.13.13",
     "@commitlint/cli": "^12.1.0",
-    "@commitlint/config-conventional": "^12.1.0",
+    "@commitlint/config-conventional": "^17.0.2",
     "@mdx-js/mdx": "^2.0.0-next.9",
     "@mdx-js/react": "^2.0.0-next.9",
     "@rollup/plugin-virtual": "^2.0.3",
